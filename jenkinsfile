@@ -4,15 +4,14 @@ pipeline {
     stages {
         stage('Build') {
 
-
             agent {
                 docker {
                     image 'node:18-alpine'
-                    reuseNode True
+                    reuseNode true
                 }  
             }
 
-            step {
+            steps {
                 sh '''
                 ls -la
                 node --version 
@@ -22,8 +21,6 @@ pipeline {
                 ls -la
                 '''
             }
-
-
         }
     }
 }
